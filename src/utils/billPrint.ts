@@ -30,21 +30,21 @@ export const printBill = (bill: Bill, showAmounts: boolean = true) => {
             }
             body { 
               font-family: monospace; 
-              font-size: 11px; 
+              font-size: 13px; 
               margin: 5px; 
               padding: 0;
               width: 58mm;
-              line-height: 1.2;
+              line-height: 1.3;
             }
             .header { text-align: center; margin-bottom: 8px; }
-            .header h2 { margin: 2px 0; font-size: 15px; font-weight: bold; }
-            .header p { margin: 1px 0; font-size: 10px; }
-            .bill-details { margin: 5px 0; font-size: 10px; }
+            .header h2 { margin: 2px 0; font-size: 18px; font-weight: bold; }
+            .header p { margin: 1px 0; font-size: 12px; }
+            .bill-details { margin: 5px 0; font-size: 12px; }
             .bill-details p { margin: 1px 0; }
             .items-table { 
               width: 100%; 
               border-collapse: collapse; 
-              font-size: 10px;
+              font-size: 12px;
               margin: 5px 0;
             }
             .items-table th { 
@@ -59,7 +59,7 @@ export const printBill = (bill: Bill, showAmounts: boolean = true) => {
             }
             .total { 
               font-weight: bold; 
-              font-size: 12px; 
+              font-size: 14px; 
               text-align: right;
               margin: 5px 0;
             }
@@ -71,7 +71,7 @@ export const printBill = (bill: Bill, showAmounts: boolean = true) => {
               text-align: center; 
               margin-top: 8px; 
               margin-bottom: 0;
-              font-size: 10px;
+              font-size: 12px;
               font-weight: bold;
             }
           </style>
