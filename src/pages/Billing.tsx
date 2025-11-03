@@ -750,7 +750,7 @@ const NewBilling = () => {
               {/* Customer Information */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Customer Information</CardTitle>
+                  <CardTitle className="text-xl">Customer Information</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
@@ -781,7 +781,7 @@ const NewBilling = () => {
               {/* Items Section */}
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle className="text-lg">Order Items</CardTitle>
+                  <CardTitle className="text-xl">Order Items</CardTitle>
                   <Button onClick={() => setShowFoodSelection(true)} className="flex items-center gap-2">
                     <Plus className="w-4 h-4" />
                     Add Item
@@ -789,14 +789,14 @@ const NewBilling = () => {
                 </CardHeader>
                 <CardContent>
                   {currentBill.items.length === 0 ? (
-                    <p className="text-center text-muted-foreground py-8">No items added yet</p>
+                    <p className="text-center text-muted-foreground py-8 text-base">No items added yet</p>
                   ) : (
                     <div className="space-y-2">
                       {currentBill.items.map((item, index) => (
                         <div key={`${item.food_item_id}-${index}`} className="flex items-center justify-between p-3 bg-muted rounded-lg">
                           <div className="flex-1">
-                            <p className="font-medium">{item.food_item_name}</p>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="font-medium text-base">{item.food_item_name}</p>
+                            <p className="text-base text-muted-foreground">
                               ₹{item.price.toFixed(2)} each
                             </p>
                           </div>
@@ -810,7 +810,7 @@ const NewBilling = () => {
                               >
                                 -
                               </Button>
-                              <span className="px-2 text-sm font-medium min-w-[2rem] text-center">
+                              <span className="px-2 text-base font-medium min-w-[2rem] text-center">
                                 {item.quantity}
                               </span>
                               <Button
@@ -822,7 +822,7 @@ const NewBilling = () => {
                                 +
                               </Button>
                             </div>
-                            <span className="font-medium min-w-[4rem] text-right">₹{item.total.toFixed(2)}</span>
+                            <span className="font-medium text-base min-w-[4rem] text-right">₹{item.total.toFixed(2)}</span>
                             <Button
                               variant="ghost"
                               size="sm"
@@ -834,7 +834,7 @@ const NewBilling = () => {
                         </div>
                       ))}
                       <Separator />
-                      <div className="flex justify-between items-center text-lg font-bold">
+                      <div className="flex justify-between items-center text-xl font-bold">
                         <span>Total:</span>
                         <span>₹{currentBill.total}</span>
                       </div>
@@ -863,7 +863,7 @@ const NewBilling = () => {
             <TabsContent value="drafts" className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Draft Bills</CardTitle>
+                  <CardTitle className="text-xl">Draft Bills</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="mb-4">
@@ -879,7 +879,7 @@ const NewBilling = () => {
                   </div>
 
                   {filteredDrafts.length === 0 ? (
-                    <p className="text-center text-muted-foreground py-8">
+                    <p className="text-center text-muted-foreground py-8 text-base">
                       {searchTerm ? "No draft bills found matching your search" : "No draft bills"}
                     </p>
                   ) : (
@@ -887,10 +887,10 @@ const NewBilling = () => {
                       {filteredDrafts.map((draft) => (
                         <div key={draft.id} className="flex items-center justify-between p-4 border rounded-lg">
                           <div>
-                            <p className="font-medium">
+                            <p className="font-medium text-base">
                               {draft.customer_name || `Customer ***${draft.mobile_last_digit}`}
                             </p>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-base text-muted-foreground">
                               Mobile: ***{draft.mobile_last_digit} • {draft.bill_items?.length || 0} items • ₹{draft.total} • {new Date(draft.created_at).toLocaleDateString()}
                             </p>
                           </div>
@@ -943,22 +943,22 @@ const NewBilling = () => {
               {/* Customer Information */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Customer Information</CardTitle>
+                  <CardTitle className="text-xl">Customer Information</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <Label>Mobile Number</Label>
-                      <p className="text-sm font-medium">***{viewingDraft.mobile_last_digit}</p>
+                      <p className="text-base font-medium">***{viewingDraft.mobile_last_digit}</p>
                     </div>
                     <div>
                       <Label>Customer Name</Label>
-                      <p className="text-sm font-medium">{viewingDraft.customer_name || 'Walk-in Customer'}</p>
+                      <p className="text-base font-medium">{viewingDraft.customer_name || 'Walk-in Customer'}</p>
                     </div>
                   </div>
                   <div>
                     <Label>Date</Label>
-                    <p className="text-sm font-medium">{new Date(viewingDraft.created_at).toLocaleString()}</p>
+                    <p className="text-base font-medium">{new Date(viewingDraft.created_at).toLocaleString()}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -966,7 +966,7 @@ const NewBilling = () => {
               {/* Order Items */}
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle className="text-lg">Order Items</CardTitle>
+                  <CardTitle className="text-xl">Order Items</CardTitle>
                   <Button onClick={() => setShowFoodSelection(true)} size="sm" className="flex items-center gap-2">
                     <Plus className="w-4 h-4" />
                     Add Item
@@ -974,14 +974,14 @@ const NewBilling = () => {
                 </CardHeader>
                 <CardContent>
                   {viewingDraft.bill_items.length === 0 ? (
-                    <p className="text-center text-muted-foreground py-4">No items in this draft</p>
+                    <p className="text-center text-muted-foreground py-4 text-base">No items in this draft</p>
                   ) : (
                     <div className="space-y-2">
                       {viewingDraft.bill_items.map((item, index) => (
                         <div key={`${item.food_item_id}-${index}`} className="flex items-center justify-between p-3 bg-muted rounded-lg">
                           <div className="flex-1">
-                            <p className="font-medium">{item.food_item_name}</p>
-                            <p className="text-sm text-muted-foreground">₹{item.price.toFixed(2)} each</p>
+                            <p className="font-medium text-base">{item.food_item_name}</p>
+                            <p className="text-base text-muted-foreground">₹{item.price.toFixed(2)} each</p>
                           </div>
                           <div className="flex items-center gap-3">
                             <div className="flex items-center gap-2 bg-background rounded-md border">
@@ -993,7 +993,7 @@ const NewBilling = () => {
                               >
                                 -
                               </Button>
-                              <span className="px-2 text-sm font-medium min-w-[2rem] text-center">
+                              <span className="px-2 text-base font-medium min-w-[2rem] text-center">
                                 {item.quantity}
                               </span>
                               <Button
@@ -1005,12 +1005,12 @@ const NewBilling = () => {
                                 +
                               </Button>
                             </div>
-                            <span className="font-medium min-w-[4rem] text-right">₹{item.total.toFixed(2)}</span>
+                            <span className="font-medium text-base min-w-[4rem] text-right">₹{item.total.toFixed(2)}</span>
                           </div>
                         </div>
                       ))}
                       <Separator />
-                      <div className="flex justify-between items-center text-lg font-bold">
+                      <div className="flex justify-between items-center text-xl font-bold">
                         <span>Net Payable:</span>
                         <span>₹{viewingDraft.total.toFixed(2)}</span>
                       </div>
@@ -1050,7 +1050,7 @@ const NewBilling = () => {
             <DialogTitle>Select Payment Mode</DialogTitle>
           </DialogHeader>
           <div className="space-y-4 py-4">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-base text-muted-foreground">
               Choose the payment method for this bill:
             </p>
             <div className="grid grid-cols-2 gap-4">
